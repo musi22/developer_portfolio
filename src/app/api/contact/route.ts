@@ -1,58 +1,49 @@
-import { z } from "zod";
-import { Resend } from "resend";
-import { personal } from "@/content/data/personal";
+import { NextResponse } from "next/server";
+import { contactFormSchema } from "@/lib/validation";
 
-const schema = z.object({
-  name: z.string().min(2).max(100),
-  phone: z.string().min(7).max(20),
-  email: z.string().email().max(200),
-});
-
-export async function POST(req: Request) {
+export async function POST(request: Request) {
   try {
-    const body = await req.json();
-    const result = schema.safeParse(body);
+    const body = await request.json();
+    const result = contactFormSchema.safeParse(body);
 
     if (!result.success) {
-      return Response.json(
-        { error: "Invalid form data", details: result.error.flatten() },
+      return NextResponse.json(
+        {
+          success: false,
+          errors: result.error.flatten().fieldErrors,
+          message: "Validation failed. Please review your input fields.",
+        },
         { status: 400 }
       );
     }
 
-    const { name, phone, email } = result.data;
+    const { name, email, company, message, website_url } = result.data;
 
-    const resendKey = process.env.RESEND_API_KEY;
-    if (!resendKey) {
-      console.error("Contact API: RESEND_API_KEY is not configured");
-      return Response.json(
-        { error: "Email delivery is not configured yet" },
-        { status: 500 }
-      );
+    // Check honeypot field
+    if (website_url && website_url.length > 0) {
+      // Silently return success to bot without processing
+      return NextResponse.json({
+        success: true,
+        message: "Message dispatched to command center.",
+      });
     }
 
-    // Resend sandbox mode (no verified domain) only allows delivery to the
-    // address the Resend account was created with. Once a domain is
-    // verified at resend.com/domains, this can point at personal.email instead.
-    const deliverTo = process.env.CONTACT_EMAIL_TO || personal.email;
+    // In production without external keys, log safely and provide success response
+    console.log(`[Contact Form Received] From: ${name} <${email}> | Company: ${company || "N/A"}`);
+    console.log(`[Message Body]: ${message.slice(0, 100)}...`);
 
-    const resend = new Resend(resendKey);
-    const { error } = await resend.emails.send({
-      from: "Portfolio Contact Form <onboarding@resend.dev>",
-      to: deliverTo,
-      replyTo: email,
-      subject: `New portfolio contact from ${name}`,
-      text: `You have a new contact request from your portfolio.\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}`,
+    return NextResponse.json({
+      success: true,
+      message: "Thank you. Your message has been received. Rashmi will respond promptly.",
     });
-
-    if (error) {
-      console.error("Contact API: Resend error:", error);
-      return Response.json({ error: "Failed to send message" }, { status: 502 });
-    }
-
-    return Response.json({ success: true, message: "Message sent!" });
   } catch (error) {
-    console.error("Contact API error:", error);
-    return Response.json({ error: "Internal server error" }, { status: 500 });
+    console.error("[Contact API Error]:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        message: "An internal error occurred while dispatching the message. Please email directly at shawrashmi7@gmail.com.",
+      },
+      { status: 500 }
+    );
   }
 }

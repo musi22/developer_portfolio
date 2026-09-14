@@ -1,252 +1,110 @@
-import type { Skill, SkillGroup } from "@/types/skill";
+// Engineering Capabilities & Systems Architecture Map
+// Replaces generic percentage bars with a structured systems map
 
-export const skills: Skill[] = [
-  // Languages & Data Tools
-  {
-    id: "python",
-    name: "Python",
-    category: "Languages",
-    icon: "🐍",
-    level: 95,
-    experience: "3 years",
-    color: "#3776AB",
-    description: "Core language for ML pipelines, modeling, and automation.",
-  },
-  {
-    id: "sql",
-    name: "SQL",
-    category: "Languages",
-    icon: "🗄️",
-    level: 88,
-    experience: "2 years",
-    color: "#336791",
-    description: "Database querying, joining, and index optimizations.",
-  },
-  {
-    id: "cpp",
-    name: "C++",
-    category: "Languages",
-    icon: "👾",
-    level: 90,
-    experience: "4 years",
-    color: "#00599C",
-    description: "Primary language for solving DSA and algorithm patterns.",
-  },
-  {
-    id: "java",
-    name: "Java",
-    category: "Languages",
-    icon: "☕",
-    level: 75,
-    experience: "2 years",
-    color: "#ED8B00",
-  },
-  {
-    id: "javascript",
-    name: "JavaScript (ES6+)",
-    category: "Languages",
-    icon: "🟡",
-    level: 85,
-    experience: "2 years",
-    color: "#F7DF1E",
-  },
-  {
-    id: "pandas",
-    name: "Pandas & NumPy",
-    category: "Languages",
-    icon: "🐼",
-    level: 90,
-    experience: "3 years",
-    color: "#150458",
-    description: "Data manipulation, feature engineering, and calculations.",
-  },
-  {
-    id: "visualization",
-    name: "Matplotlib & Seaborn",
-    category: "Languages",
-    icon: "📊",
-    level: 85,
-    experience: "2 years",
-    color: "#3776AB",
-  },
+export interface SystemCapability {
+  name: string;
+  category: string;
+  iconName: string;
+  description: string;
+  productionContext: string;
+  technologies: Array<{
+    name: string;
+    level: "Core" | "Advanced" | "Production";
+    context: string;
+  }>;
+}
 
-  // ML / AI / NLP
+export const engineeringSystems: SystemCapability[] = [
   {
-    id: "pytorch",
-    name: "PyTorch",
-    category: "AI/ML",
-    icon: "🔥",
-    level: 90,
-    experience: "2 years",
-    color: "#EE4C2C",
-    description: "Deep learning model prototyping and CNN implementation.",
+    name: "Agent & AI Systems",
+    category: "autonomous-intelligence",
+    iconName: "Cpu",
+    description:
+      "Deterministic orchestration architectures that turn non-deterministic models into production-grade systems with verifiable guarantees.",
+    productionContext:
+      "Built 9-node state machines in LangGraph separating classification, planning, authorization, tool calling, human-in-the-loop sign-off, validation, and SHA-256 evidence logging.",
+    technologies: [
+      { name: "LangGraph", level: "Production", context: "Cyclic state graphs, checkpointing, conditional branches" },
+      { name: "LangChain", level: "Production", context: "Prompt pipelines, schema parsers, tool abstractions" },
+      { name: "Agent Orchestration", level: "Core", context: "Multi-agent planner-verifier-synthesizer topologies" },
+      { name: "LLM Tool Calling", level: "Production", context: "Strict Pydantic v2 JSON-schema deterministic dispatch" },
+      { name: "RAG & Hybrid Search", level: "Advanced", context: "Dense semantic + sparse BM25 with Reciprocal Rank Fusion" },
+      { name: "Human-in-the-Loop", level: "Production", context: "Supervisory queues for high-risk concessions > $50" },
+      { name: "Policy Enforcement", level: "Production", context: "Deterministic RBAC, resource ownership, prompt injection defense" },
+    ],
   },
   {
-    id: "tensorflow",
-    name: "TensorFlow",
-    category: "AI/ML",
-    icon: "🧠",
-    level: 82,
-    experience: "2 years",
-    color: "#FF6F00",
+    name: "Backend Systems",
+    category: "service-layer",
+    iconName: "Server",
+    description:
+      "High-throughput, asynchronous API backends with robust schema validation, connection pooling, and resilient failure recovery.",
+    productionContext:
+      "Engineered FastAPI microservices and REST gateways serving WebSockets and asynchronous tasks with low latency and clean modular separation.",
+    technologies: [
+      { name: "Python 3.11+", level: "Production", context: "Modern type hinting, dataclasses, async event loops" },
+      { name: "FastAPI", level: "Production", context: "Asynchronous route handlers, dependency injection, OpenAPI" },
+      { name: "Node.js & Express.js", level: "Advanced", context: "Full-stack event-driven services and tooling" },
+      { name: "REST APIs", level: "Production", context: "Idempotent mutation endpoints, RFC-7807 problem details" },
+      { name: "WebSockets", level: "Production", context: "Sub-10ms duplex streaming with per-connection bounded queues" },
+      { name: "Async Programming", level: "Production", context: "asyncio, task groups, non-blocking I/O multiplexing" },
+      { name: "SQLAlchemy (Async)", level: "Production", context: "Async ORM, connection pool tuning, migration integrity" },
+      { name: "Pydantic v2", level: "Production", context: "Rust-accelerated schema validation and serialization" },
+    ],
   },
   {
-    id: "opencv",
-    name: "OpenCV & YOLO",
-    category: "AI/ML",
-    icon: "👁️",
-    level: 92,
-    experience: "2 years",
-    color: "#5C3EE8",
-    description: "Object detection, player tracking, and video analysis pipelines.",
+    name: "Distributed Systems",
+    category: "event-infrastructure",
+    iconName: "Network",
+    description:
+      "Event-driven streaming infrastructure with message durability, backpressure handling, and fault isolation under peak concurrency.",
+    productionContext:
+      "Designed real-time market data streaming with Apache Kafka / Redpanda partitions and Redis state caches sustaining 10,000 events/second.",
+    technologies: [
+      { name: "Apache Kafka", level: "Production", context: "Partition keys, consumer groups, offset commit management" },
+      { name: "Redpanda", level: "Production", context: "Drop-in Kafka-compatible C++ event streaming broker" },
+      { name: "Redis 7", level: "Production", context: "Pub/Sub, atomic key reservations, TTL caching, token stores" },
+      { name: "Event-Driven Architecture", level: "Production", context: "Transactional outbox pattern, domain event dispatch" },
+      { name: "Backpressure Management", level: "Advanced", context: "Slow-consumer frame eviction, bounded ring buffers" },
+      { name: "Idempotency Controls", level: "Production", context: "0.0% duplicate writes under transient network retries" },
+      { name: "Retry & Recovery", level: "Production", context: "Bounded exponential backoff with jitter (2^(N-1) * 0.1s)" },
+      { name: "Fault Isolation", level: "Production", context: "Circuit breakers, bulkhead isolation across microservices" },
+    ],
   },
   {
-    id: "ollama",
-    name: "Ollama / Generative AI",
-    category: "AI/ML",
-    icon: "🤖",
-    level: 85,
-    experience: "1 year",
-    color: "#BE185D",
-    description: "Local LLM assistant integration and workflow automations.",
+    name: "Data & Retrieval",
+    category: "persistence-layer",
+    iconName: "Database",
+    description:
+      "Hybrid storage architecture uniting relational ACID transactions, high-performance caches, and dense/sparse vector search.",
+    productionContext:
+      "Combined PostgreSQL for transactional ledgers with Qdrant vector embeddings and Elasticsearch BM25 for hybrid enterprise knowledge search.",
+    technologies: [
+      { name: "PostgreSQL 16", level: "Production", context: "ACID compliance, schema constraints, JSONB, indexing" },
+      { name: "MongoDB", level: "Advanced", context: "Document persistence, aggregation pipelines, replica sets" },
+      { name: "Qdrant", level: "Production", context: "High-dimensional dense vector indexing and cosine distance" },
+      { name: "Elasticsearch", level: "Advanced", context: "Inverted index, BM25 text relevance, tokenizers" },
+      { name: "Vector & Hybrid Search", level: "Production", context: "Reciprocal Rank Fusion (RRF), cross-encoder re-ranking" },
+      { name: "SHA-256 Hash Chaining", level: "Production", context: "Append-only tamper-evident cryptographic evidence ledger" },
+    ],
   },
   {
-    id: "nlp",
-    name: "NLP Pipelines",
-    category: "AI/ML",
-    icon: "🗣️",
-    level: 80,
-    experience: "1.5 years",
-    color: "#009688",
-  },
-  {
-    id: "ml-modeling",
-    name: "Predictive Modeling",
-    category: "AI/ML",
-    icon: "📈",
-    level: 88,
-    experience: "2 years",
-    color: "#4CAF50",
-    description: "Feature engineering and regression/classification models.",
-  },
-
-  // Backend & Infra
-  {
-    id: "nodejs",
-    name: "Node.js & Express",
-    category: "Backend",
-    icon: "🟢",
-    level: 85,
-    experience: "2 years",
-    color: "#339933",
-    description: "Scalable REST APIs and backend integrations.",
-  },
-  {
-    id: "kafka",
-    name: "Apache Kafka",
-    category: "Backend",
-    icon: "⚙️",
-    level: 80,
-    experience: "1 year",
-    color: "#2F80ED",
-    description: "Event-driven messaging and microservices orchestration.",
-  },
-  {
-    id: "redis",
-    name: "Redis Caching",
-    category: "Backend",
-    icon: "🔴",
-    level: 82,
-    experience: "1.5 years",
-    color: "#DC382D",
-    description: "In-memory session, verification OTPs, and rate limiting.",
-  },
-  {
-    id: "docker",
-    name: "Docker & Git",
-    category: "Backend",
-    icon: "🐳",
-    level: 85,
-    experience: "2 years",
-    color: "#2496ED",
-  },
-
-  // Frontend
-  {
-    id: "react",
-    name: "React.js",
-    category: "Frontend",
-    icon: "⚛️",
-    level: 90,
-    experience: "2 years",
-    color: "#61DAFB",
-  },
-  {
-    id: "nextjs",
-    name: "Next.js & Tailwind",
-    category: "Frontend",
-    icon: "▲",
-    level: 88,
-    experience: "2 years",
-    color: "#ffffff",
-  },
-
-  // DSA Mastery
-  {
-    id: "graphs",
-    name: "Graphs & DP",
-    category: "Tools",
-    icon: "🕸️",
-    level: 92,
-    experience: "3 years",
-    color: "#FF5722",
-    description: "BFS, DFS, shortest paths, union-find, dynamic programming.",
-  },
-  {
-    id: "dsa-structures",
-    name: "Trees, Heaps & Tries",
-    category: "Tools",
-    icon: "🌲",
-    level: 90,
-    experience: "3 years",
-    color: "#9C27B0",
-  },
-  {
-    id: "dsa-patterns",
-    name: "Greedy & Sliding Window",
-    category: "Tools",
-    icon: "🪟",
-    level: 88,
-    experience: "3 years",
-    color: "#3F51B5",
+    name: "Infrastructure & Quality",
+    category: "devops-testing",
+    iconName: "ShieldCheck",
+    description:
+      "Containerized reproducible environments, automated CI/CD validation gates, distributed telemetry, and rigorous test coverage.",
+    productionContext:
+      "Engineered automated release gates with 20 ground-truth synthetic scenarios, Docker Compose multi-service stacks, and OpenTelemetry instrumentation.",
+    technologies: [
+      { name: "Docker & Compose", level: "Production", context: "Multi-stage builds, rootless containers, microservice stacks" },
+      { name: "GitHub Actions", level: "Production", context: "Automated linting, test suites, and deployment workflows" },
+      { name: "Linux / POSIX", level: "Production", context: "Shell scripting, process management, socket configuration" },
+      { name: "Prometheus & Grafana", level: "Advanced", context: "Custom system metric collectors, dashboard alerts" },
+      { name: "OpenTelemetry", level: "Advanced", context: "Distributed trace spans across agent tool executions" },
+      { name: "Pytest", level: "Production", context: "Parametrized fixtures, async testing, mock fault injection" },
+      { name: "Vitest & Playwright", level: "Production", context: "Next.js component tests and end-to-end smoke verification" },
+      { name: "Synthetic Evaluation", level: "Production", context: "Controlled benchmark harnesses with seeded network faults" },
+    ],
   },
 ];
-
-export const skillGroups: SkillGroup[] = [
-  {
-    category: "Languages",
-    icon: "💬",
-    skills: skills.filter((s) => s.category === "Languages"),
-  },
-  {
-    category: "AI/ML",
-    icon: "🤖",
-    skills: skills.filter((s) => s.category === "AI/ML"),
-  },
-  {
-    category: "Backend",
-    icon: "⚙️",
-    skills: skills.filter((s) => s.category === "Backend"),
-  },
-  {
-    category: "Frontend",
-    icon: "🎨",
-    skills: skills.filter((s) => s.category === "Frontend"),
-  },
-  {
-    category: "Tools",
-    icon: "🛠️",
-    skills: skills.filter((s) => s.category === "Tools"),
-  },
-];
-

@@ -1,72 +1,141 @@
-# Rashmi Shaw — Portfolio OS
+# Rashmi Shaw — AI Systems & Backend Engineer Portfolio
 
-An interactive, desktop-OS-styled developer portfolio for **Rashmi Shaw**, AI Engineer & Full-Stack Developer (B.Tech IT, NIT Kurukshetra, 2026). Instead of a static one-page resume, the site boots into a simulated desktop with draggable windows for each section — About, Resume, Projects, Skills, Blog, GitHub, an AI assistant, a working terminal, and a contact form.
+> Production-oriented personal portfolio designed with an **“AI Command Center”** aesthetic. Showcases reliable AI-agent state machines, event-driven streaming infrastructure, sub-millisecond revenue recovery, and multi-agent hybrid retrieval systems.
 
-**Live:** [portfolio-one-black-12.vercel.app](https://portfolio-one-black-12.vercel.app)
+[![Next.js](https://img.shields.io/badge/Next.js-16.2.10-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2.4-blue?logo=react)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Three.js](https://img.shields.io/badge/Three.js-R3F-black?logo=three.js)](https://threejs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-cyan?logo=tailwindcss)](https://tailwindcss.com/)
+[![Tests](https://img.shields.io/badge/Tests-Vitest-green?logo=vitest)](https://vitest.dev/)
 
 ---
 
-## Highlights
+## 🏛️ Core Creative Concept: Agent Control Core
 
-- **Desktop OS shell** — boot sequence, draggable/resizable windows, dock, taskbar, and command palette (⌘K), built with Framer Motion including custom 3D tilt interactions on project cards.
-- **Live GitHub integration** — profile stats and repos pulled directly from the GitHub REST API at request time.
-- **AI Assistant** — chat window backed by a real LLM (OpenAI, Groq, or xAI/Grok, auto-selected by whichever key is configured), with a graceful scripted fallback when no key is set.
-- **Working terminal emulator** — `about`, `projects`, `skills`, `resume`, `contact`, `whoami`, `neofetch`, and more, with command history and autocomplete.
-- **Contact form that actually delivers** — validated with Zod + React Hook Form, sent via [Resend](https://resend.com).
-- **Downloadable resume** — real PDF served from `/resume.pdf`.
+The hero section features an interactive **Agent Control Core** representing the 9-node LangGraph directed state machine from the **Enterprise Agent Trust Platform**:
 
-## Tech Stack
+1. **Classification** — Linguistic intent extraction & tool necessity check
+2. **Planning** — Directed acyclic plan creation with recursion caps
+3. **Authorization** — RBAC & multi-tenant resource ownership verification
+4. **Human Approval** — Supervisory pause gate for concessions exceeding $50
+5. **Execution** — Idempotent tool execution with transactional UUID tokens
+6. **Validation** — Pydantic schema validation & database integrity checks
+7. **Recovery** — Bounded exponential backoff healing transient 429/500 network faults
+8. **Audit Generation** — Append-only SHA-256 evidence chain with $O(N)$ mathematical tamper detection
+9. **Completion** — Terminal seal emitting latency telemetry to client sockets
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router, Turbopack), React 19, TypeScript |
-| Styling / Motion | Tailwind CSS 4, Framer Motion, GSAP |
-| Forms & Validation | React Hook Form, Zod |
-| AI | OpenAI / Groq / xAI (OpenAI-compatible chat completions) |
-| Email | Resend |
-| Rate Limiting | Upstash Redis + Ratelimit |
-| Content | MDX (next-mdx-remote) for blog posts |
+### Interactions & Performance Guarantees
+- **Procedural 3D Geometry**: Built with Three.js and `@react-three/fiber` without heavy GLTF assets.
+- **Client Parallax**: Subtle pointer responsiveness without blocking reader viewport.
+- **Dynamic Inspection**: Click any node to review its deterministic state and enforced policies.
+- **Packet Simulation**: Simulated tool execution packet cycles through the state machine.
+- **Accessible Fallback**: Automatic detection of `prefers-reduced-motion` and non-WebGL hardware switching to a high-fidelity interactive 2D SVG state matrix.
+- **Power Efficiency**: `IntersectionObserver` automatically suspends the RAF render loop when the component leaves the viewport.
 
-## Project Structure
+---
 
-```
-src/
-├── app/                  # Routes + API endpoints (chat, contact, GitHub proxy)
-├── components/
-│   ├── desktop/           # Window manager, dock, taskbar, command palette
-│   ├── landing/            # Boot sequence + hero
-│   └── ui/                # Shared UI primitives (e.g. 3D tilt cards)
-├── features/               # One folder per desktop app (about, projects, ai, terminal, ...)
-├── content/data/           # Portfolio content (personal info, projects, skills)
-└── hooks/                  # Window manager & settings state
-```
+## 🚀 Featured Engineering Case Studies
 
-## Running Locally
+1. **[Enterprise Agent Trust Platform](https://github.com/musi22/enterprise-agent-trust-platform)**
+   - *AI Safety · Agent Systems · Backend*
+   - Live Web Console: [enterprise-ai-web-production.up.railway.app](https://enterprise-ai-web-production.up.railway.app/)
+   - Evaluated across 20 synthetic scenarios: +40% lift in task success (60% to 100%), 0.0% unauthorized actions.
+   - Cryptographic SHA-256 evidence ledger with real-time tamper detection.
 
+2. **[StreamAlpha](https://github.com/musi22/StreamAlpha)**
+   - *Real-Time Systems · Distributed Backend*
+   - Event streaming via Apache Kafka / Redpanda with per-client bounded asynchronous queues.
+   - Sustains 10,000 events/second at 60 FPS UI rendering via FINOS Perspective WebAssembly.
+   - Zero dropped packets under peak opening burst.
+
+3. **[RevenueGuard](https://github.com/musi22/RevenueGuard)**
+   - *Applied AI · Experimentation · Business Automation*
+   - Leakage triage in < 1ms via deterministic rules before LLM invocation.
+   - Expected Recovery Value (ERV) scoring with 50% holdout A/B testing measuring true causal lift.
+
+4. **[NexusAgent (nexus_ai)](https://github.com/musi22/nexus_ai)**
+   - *Multi-Agent RAG · Enterprise Search*
+   - Connectors for GitHub, Jira, Slack, and Confluence.
+   - Hybrid retrieval fusing Qdrant dense vector embeddings and Elasticsearch BM25 keywords via Reciprocal Rank Fusion (RRF).
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+- **Framework**: Next.js (App Router, Turbopack, React 19)
+- **Language**: TypeScript (strict mode enabled)
+- **3D & Graphics**: Three.js, React Three Fiber, `@react-three/drei`
+- **Styling**: Vanilla CSS tokens & Tailwind CSS v4
+- **Typography**: Space Grotesk (Headings), Inter (Body), JetBrains Mono (Code/Telemetry)
+- **Testing**: Vitest, React Testing Library, JSDOM, Playwright
+- **Integration**: GitHub REST API with server-side ISR caching and authentic offline fallback
+
+---
+
+## 💻 Quickstart & Local Development
+
+### Prerequisites
+- Node.js 20.x or higher
+- npm 10.x or higher
+
+### 1. Clone & Install
 ```bash
+git clone https://github.com/musi22/developer_portfolio.git
+cd developer_portfolio
 npm install
+```
+
+### 2. Configure Environment (Optional)
+```bash
+cp .env.example .env.local
+```
+
+### 3. Start Development Server
+```bash
 npm run dev
 ```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Copy `.env.local` and fill in the values you need — the app runs and degrades gracefully with zero keys configured (AI Assistant and GitHub app show scripted fallbacks):
+---
 
-```env
-GITHUB_USERNAME=your-github-username
-NEXT_PUBLIC_OWNER_NAME="Your Name"
+## 🧪 Testing Suite
 
-# Any one enables the AI Assistant:
-# GROQ_API_KEY=gsk_...
-# OPENAI_API_KEY=sk-...
-# XAI_API_KEY=xai-...
-
-# Enables the contact form:
-RESEND_API_KEY=re_...
-```
-
-## Deployment
-
-Deployed on [Vercel](https://vercel.com). Push to `main` or run:
-
+Run the Vitest unit and integration tests:
 ```bash
-vercel --prod
+npm run test
 ```
+
+Tests cover:
+- Navigation links, RS monogram brand routing, and mobile drawer toggles
+- Verified GitHub fallback dataset matching musi22 repositories
+- Contact form Zod validation and honeypot spam protection
+- Case study data structures, decisions, and slug retrieval
+
+---
+
+## 🚢 Production Build & Deployment
+
+Validate production bundle locally:
+```bash
+npm run build
+npm run start
+```
+
+### Vercel Deployment
+This repository is pre-configured for zero-config Vercel deployment:
+1. Connect repository on [Vercel](https://vercel.com).
+2. Set Framework Preset to **Next.js**.
+3. Deploy.
+
+---
+
+## 👤 Author
+
+**Rashmi Shaw**
+- Location: Kolkata, India (Open to India, global remote, and worldwide relocation)
+- Email: [shawrashmi7@gmail.com](mailto:shawrashmi7@gmail.com)
+- GitHub: [@musi22](https://github.com/musi22)
+- LinkedIn: [in/rashmi-shaw-92b444230](https://www.linkedin.com/in/rashmi-shaw-92b444230)
+- LeetCode: [u/rinki_2005](https://leetcode.com/u/rinki_2005/)
+- Education: National Institute of Technology, Kurukshetra (B.Tech IT, 2022–2026, CGPA 8.0/10)

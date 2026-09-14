@@ -4,20 +4,23 @@ import { personal } from "@/content/data/personal";
 
 export const metadata: Metadata = {
   title: {
-    default: `${personal.name} — AI Engineer & Full-Stack Developer`,
+    default: `${personal.name} — AI Systems & Backend Engineer`,
     template: `%s | ${personal.name}`,
   },
   description: personal.ogDescription,
   keywords: [
-    "AI Engineer",
-    "Full Stack Developer",
+    "Rashmi Shaw",
+    "AI Systems Engineer",
     "Backend Engineer",
-    "Machine Learning",
-    "React",
-    "Next.js",
-    "Python",
-    "Portfolio",
-    personal.name,
+    "Agent Systems Engineer",
+    "Applied AI Engineer",
+    "LangGraph",
+    "FastAPI",
+    "Apache Kafka",
+    "Distributed Systems",
+    "AI Safety",
+    "NIT Kurukshetra",
+    "Software Engineer",
   ],
   authors: [{ name: personal.name, url: personal.website }],
   creator: personal.name,
@@ -26,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: personal.website,
-    title: `${personal.name} — AI OS Portfolio`,
+    title: personal.ogTitle,
     description: personal.ogDescription,
     siteName: `${personal.name} Portfolio`,
     images: [
@@ -34,13 +37,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: `${personal.name} — AI OS Portfolio`,
+        alt: `${personal.name} — AI Systems & Backend Engineer`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${personal.name} — AI OS Portfolio`,
+    title: personal.ogTitle,
     description: personal.ogDescription,
     images: ["/og-image.png"],
   },
@@ -57,14 +60,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
   },
-  manifest: "/manifest.json",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#8b5cf6",
+  themeColor: "#050607",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1,
@@ -76,9 +76,48 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // JSON-LD Person schema for search engine rich results
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: personal.name,
+    jobTitle: personal.title,
+    url: personal.website,
+    sameAs: [
+      personal.github,
+      personal.linkedin,
+      personal.leetcode,
+    ],
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: personal.education.institution,
+    },
+    knowsAbout: [
+      "AI Agent Orchestration",
+      "LangGraph",
+      "Distributed Systems",
+      "FastAPI",
+      "Apache Kafka",
+      "Redis",
+      "PostgreSQL",
+      "Event-Driven Architecture",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kolkata",
+      addressCountry: "India",
+    },
+  };
+
   return (
     <html lang="en" className="dark">
-      <body className="mesh-bg antialiased" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
+      <body className="antialiased bg-[#050607] text-[#F4F4F5] selection:bg-[#61F4DE]/25 selection:text-white" suppressHydrationWarning>
         {children}
       </body>
     </html>
