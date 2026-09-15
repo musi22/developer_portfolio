@@ -69,7 +69,7 @@ export default function CommandFooter() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-8 text-[11px] text-[#656A74]">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#6EE7A8] animate-pulse-dot" />
-            <span className="text-[#989CA5]">All AI Agent Safeguards Operational</span>
+            <span className="text-[#989CA5]">All Systems Operational · Built with ☕ by Rashmi Shaw</span>
           </div>
 
           <div className="flex items-center gap-4">

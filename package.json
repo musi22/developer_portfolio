@@ -1,6 +1,13 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
+  "name": "rashmi-shaw-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio and engineering playground of Rashmi Shaw — AI Systems & Backend Engineer",
+  "author": "Rashmi Shaw <shawrashmi7@gmail.com>",
+  "homepage": "https://rashmishaw.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/musi22/developer_portfolio.git"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",

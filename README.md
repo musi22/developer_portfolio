@@ -1,141 +1,148 @@
-# Rashmi Shaw — AI Systems & Backend Engineer Portfolio
+# rashmishaw.dev ⚡
+### Personal Portfolio & Interactive Systems Playground
 
-> Production-oriented personal portfolio designed with an **“AI Command Center”** aesthetic. Showcases reliable AI-agent state machines, event-driven streaming infrastructure, sub-millisecond revenue recovery, and multi-agent hybrid retrieval systems.
+> **Live Website:** [rashmishaw.dev](https://rashmishaw.dev) · **Resume:** [`public/resume.pdf`](./public/resume.pdf)
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.2.10-black?logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.2.4-blue?logo=react)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Three.js](https://img.shields.io/badge/Three.js-R3F-black?logo=three.js)](https://threejs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-cyan?logo=tailwindcss)](https://tailwindcss.com/)
-[![Tests](https://img.shields.io/badge/Tests-Vitest-green?logo=vitest)](https://vitest.dev/)
+Hey! I'm **Rashmi Shaw**, a backend and AI systems engineer from Kolkata, India, graduating from the **National Institute of Technology, Kurukshetra** (Class of 2026).
+
+This repository contains the source code for my personal portfolio. Rather than building a static résumé page, I designed this site as an **interactive computing playground** that demonstrates the distributed systems, agentic state machines, and cryptographic verification patterns I build in real projects.
 
 ---
 
-## 🏛️ Core Creative Concept: Agent Control Core
+## 💡 Why I Built This
 
-The hero section features an interactive **Agent Control Core** representing the 9-node LangGraph directed state machine from the **Enterprise Agent Trust Platform**:
-
-1. **Classification** — Linguistic intent extraction & tool necessity check
-2. **Planning** — Directed acyclic plan creation with recursion caps
-3. **Authorization** — RBAC & multi-tenant resource ownership verification
-4. **Human Approval** — Supervisory pause gate for concessions exceeding $50
-5. **Execution** — Idempotent tool execution with transactional UUID tokens
-6. **Validation** — Pydantic schema validation & database integrity checks
-7. **Recovery** — Bounded exponential backoff healing transient 429/500 network faults
-8. **Audit Generation** — Append-only SHA-256 evidence chain with $O(N)$ mathematical tamper detection
-9. **Completion** — Terminal seal emitting latency telemetry to client sockets
-
-### Interactions & Performance Guarantees
-- **Procedural 3D Geometry**: Built with Three.js and `@react-three/fiber` without heavy GLTF assets.
-- **Client Parallax**: Subtle pointer responsiveness without blocking reader viewport.
-- **Dynamic Inspection**: Click any node to review its deterministic state and enforced policies.
-- **Packet Simulation**: Simulated tool execution packet cycles through the state machine.
-- **Accessible Fallback**: Automatic detection of `prefers-reduced-motion` and non-WebGL hardware switching to a high-fidelity interactive 2D SVG state matrix.
-- **Power Efficiency**: `IntersectionObserver` automatically suspends the RAF render loop when the component leaves the viewport.
+Most developer portfolios are static marketing templates with cards and progress bars. I wanted something that reflects how I actually write software:
+- **State machines over black-box prompts** — deterministic gates, approval checkpoints, and rollback strategies.
+- **Resilience under load** — backpressure queues, circuit breakers, and bounded buffers.
+- **Mathematical proof over assumptions** — cryptographic hash chains for tamper-evident audit trails.
+- **Direct interaction** — live interactive diagrams, simulated tamper injection, and an on-device AI voice assistant.
 
 ---
 
-## 🚀 Featured Engineering Case Studies
+## 🛠️ Interactive Engineering Highlights on the Site
 
-1. **[Enterprise Agent Trust Platform](https://github.com/musi22/enterprise-agent-trust-platform)**
-   - *AI Safety · Agent Systems · Backend*
-   - Live Web Console: [enterprise-ai-web-production.up.railway.app](https://enterprise-ai-web-production.up.railway.app/)
-   - Evaluated across 20 synthetic scenarios: +40% lift in task success (60% to 100%), 0.0% unauthorized actions.
-   - Cryptographic SHA-256 evidence ledger with real-time tamper detection.
+### 1. 🎙️ Client-Side AI Voice Assistant
+- Powered entirely by the native browser **Web Speech API** (`SpeechRecognition` + `SpeechSynthesis`).
+- Zero cloud API latency or third-party audio streaming costs.
+- Custom stateful conversation engine with wake triggers, animated digital avatar, and instant answers about my technical stack, project architectures, and contact information.
 
-2. **[StreamAlpha](https://github.com/musi22/StreamAlpha)**
-   - *Real-Time Systems · Distributed Backend*
-   - Event streaming via Apache Kafka / Redpanda with per-client bounded asynchronous queues.
-   - Sustains 10,000 events/second at 60 FPS UI rendering via FINOS Perspective WebAssembly.
-   - Zero dropped packets under peak opening burst.
+### 2. 🔐 Chained Cryptographic Evidence Ledger
+- Located on the **Enterprise Agent Trust Platform** case study.
+- Simulates an append-only SHA-256 blockchain ledger storing immutable agent execution traces.
+- Includes a live **Tamper Simulation** button that alters a database record and demonstrates the $O(N)$ hash-verification algorithm detecting and healing the break in real time.
 
-3. **[RevenueGuard](https://github.com/musi22/RevenueGuard)**
-   - *Applied AI · Experimentation · Business Automation*
-   - Leakage triage in < 1ms via deterministic rules before LLM invocation.
-   - Expected Recovery Value (ERV) scoring with 50% holdout A/B testing measuring true causal lift.
+### 3. 🌊 High-Frequency Backpressure Flow Simulator
+- Located on the **StreamAlpha** case study.
+- Visualizes Kafka partition ingestion, bounded ring-buffer backpressure, and client websocket streaming rendering at 60 FPS via FINOS Perspective WebAssembly.
 
-4. **[NexusAgent (nexus_ai)](https://github.com/musi22/nexus_ai)**
-   - *Multi-Agent RAG · Enterprise Search*
-   - Connectors for GitHub, Jira, Slack, and Confluence.
-   - Hybrid retrieval fusing Qdrant dense vector embeddings and Elasticsearch BM25 keywords via Reciprocal Rank Fusion (RRF).
+### 4. 💻 In-Browser Interactive Terminal
+- Built into the About section with support for commands like `whoami`, `projects`, `skills`, `metrics`, `contact`, and `clear`.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🚀 The 4 Flagship Projects
 
-- **Framework**: Next.js (App Router, Turbopack, React 19)
-- **Language**: TypeScript (strict mode enabled)
-- **3D & Graphics**: Three.js, React Three Fiber, `@react-three/drei`
-- **Styling**: Vanilla CSS tokens & Tailwind CSS v4
-- **Typography**: Space Grotesk (Headings), Inter (Body), JetBrains Mono (Code/Telemetry)
-- **Testing**: Vitest, React Testing Library, JSDOM, Playwright
-- **Integration**: GitHub REST API with server-side ISR caching and authentic offline fallback
+| Project | Core Stack | Key Achievement / Impact | Links |
+|---|---|---|---|
+| **Enterprise Agent Trust Platform** | Python, FastAPI, LangGraph, PostgreSQL, Docker | 9-node governed agent state machine with RBAC, human-in-the-loop pause gates, and SHA-256 audit ledger. **0.0% unauthorized actions** across 20 synthetic attack scenarios. | [Code](https://github.com/musi22/enterprise-agent-trust-platform) · [Live Demo](https://enterprise-ai-web-production.up.railway.app/) |
+| **StreamAlpha** | Go, Kafka, Docker, WebAssembly, FINOS Perspective | High-throughput market data streaming pipeline. Handles **10,000+ events/sec** with zero packet loss under peak market burst. | [Code](https://github.com/musi22/StreamAlpha) |
+| **RevenueGuard** | Python, FastAPI, Redis, AsyncIO | Sub-millisecond revenue leakage triage with statistical A/B holdout testing measuring true causal recovery lift. **65% API latency reduction**. | [Code](https://github.com/musi22/RevenueGuard) |
+| **NexusAgent (nexus_ai)** | Python, Qdrant, Elasticsearch, FastAPI | Enterprise multi-agent search engine fusing dense vector embeddings and BM25 keywords via Reciprocal Rank Fusion (RRF). | [Code](https://github.com/musi22/nexus_ai) |
+
+> Want to see other open-source projects, experiments, and hackathon prototypes? Explore my complete profile at [github.com/musi22](https://github.com/musi22).
 
 ---
 
-## 💻 Quickstart & Local Development
+## 🏗️ Architecture & Tech Stack
+
+```
+developer_portfolio/
+├── public/
+│   ├── avatar.jpg              # Digital engineer avatar
+│   ├── resume.pdf              # Official 1-page engineering resume
+│   └── og-image.png            # OpenGraph social share card
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx          # Root layout with fonts, metadata & shell
+│   │   ├── page.tsx            # Main single-page interactive control center
+│   │   └── work/[slug]/        # Deep-dive engineering case study pages
+│   ├── components/
+│   │   ├── diagrams/           # Interactive architecture & ledger visualizers
+│   │   ├── interactive/        # VoiceAssistant, Terminal, CommandPalette, StatusPanel
+│   │   ├── navigation/         # CommandNavbar, CommandFooter, MobileDrawer
+│   │   ├── sections/           # HeroSection, FeaturedProjects, Capabilities, About, Contact
+│   │   └── ui/                 # Reusable buttons, badges, modals & icons
+│   └── content/
+│       └── data/               # Strongly-typed data: personal, projects, capabilities
+```
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router, Turbopack, React 19)
+- **Language**: TypeScript (strict type safety enabled across all modules)
+- **Styling**: Tailwind CSS v4 & custom CSS variables for dark-mode telemetry aesthetics
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Testing**: [Vitest](https://vitest.dev/) & React Testing Library (100% passing test suite)
+- **Deploy Target**: Vercel Edge Network / Railway
+
+---
+
+## ⚡ Getting Started (Local Development)
 
 ### Prerequisites
-- Node.js 20.x or higher
-- npm 10.x or higher
+- **Node.js**: `v20.x` or higher
+- **npm**: `v10.x` or higher
 
-### 1. Clone & Install
+### 1. Clone the repository
 ```bash
 git clone https://github.com/musi22/developer_portfolio.git
 cd developer_portfolio
+```
+
+### 2. Install dependencies
+```bash
 npm install
 ```
 
-### 2. Configure Environment (Optional)
-```bash
-cp .env.example .env.local
-```
-
-### 3. Start Development Server
+### 3. Run the development server
 ```bash
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
----
-
-## 🧪 Testing Suite
-
-Run the Vitest unit and integration tests:
+### 4. Run tests & type checks
 ```bash
 npm run test
+npm run lint
 ```
 
-Tests cover:
-- Navigation links, RS monogram brand routing, and mobile drawer toggles
-- Verified GitHub fallback dataset matching musi22 repositories
-- Contact form Zod validation and honeypot spam protection
-- Case study data structures, decisions, and slug retrieval
-
----
-
-## 🚢 Production Build & Deployment
-
-Validate production bundle locally:
+### 5. Build for production
 ```bash
 npm run build
 npm run start
 ```
 
-### Vercel Deployment
-This repository is pre-configured for zero-config Vercel deployment:
-1. Connect repository on [Vercel](https://vercel.com).
-2. Set Framework Preset to **Next.js**.
-3. Deploy.
+---
+
+## 📊 Performance & Accessibility Benchmarks
+
+- **60 FPS Smooth Navigation**: Heavy 3D WebGL rendering replaced with lightweight SVG procedural animations and CSS transforms to eliminate GPU heating and frame drops.
+- **Zero CLS (Cumulative Layout Shift)**: Critical image assets have explicit aspect ratios and priority loading.
+- **Keyboard & Screen Reader Accessible**: Full ARIA roles, skip links, semantic headings (`h1` through `h4`), and command palette shortcut (`Ctrl + K` / `Cmd + K`).
 
 ---
 
-## 👤 Author
+## 📬 Contact & Connect
 
-**Rashmi Shaw**
-- Location: Kolkata, India (Open to India, global remote, and worldwide relocation)
-- Email: [shawrashmi7@gmail.com](mailto:shawrashmi7@gmail.com)
-- GitHub: [@musi22](https://github.com/musi22)
-- LinkedIn: [in/rashmi-shaw-92b444230](https://www.linkedin.com/in/rashmi-shaw-92b444230)
-- LeetCode: [u/rinki_2005](https://leetcode.com/u/rinki_2005/)
-- Education: National Institute of Technology, Kurukshetra (B.Tech IT, 2022–2026, CGPA 8.0/10)
+I am actively looking for **AI Systems Engineer**, **Backend Engineer**, and **Platform Engineering** roles. Open to opportunities across India, worldwide remote roles, and international relocation.
+
+- **Email**: [shawrashmi7@gmail.com](mailto:shawrashmi7@gmail.com)
+- **Phone**: +91-9051307659
+- **LinkedIn**: [linkedin.com/in/rashmi-shaw-92b444230](https://www.linkedin.com/in/rashmi-shaw-92b444230)
+- **GitHub**: [github.com/musi22](https://github.com/musi22)
+- **LeetCode**: [leetcode.com/u/rinki_2005](https://leetcode.com/u/rinki_2005/) (500+ problems solved)
+
+---
+
+<p align="center">
+  Crafted with ☕, curiosity, and late nights by <strong>Rashmi Shaw</strong>.<br />
+  Released under the <a href="./LICENSE">MIT License</a>.
+</p>

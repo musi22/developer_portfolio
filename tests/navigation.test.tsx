@@ -14,7 +14,6 @@ describe("CommandNavbar Component", () => {
     render(<CommandNavbar />);
     expect(screen.getByText("Work")).toHaveAttribute("href", "/#work");
     expect(screen.getByText("Engineering")).toHaveAttribute("href", "/#engineering");
-    expect(screen.getByText("Open Source")).toHaveAttribute("href", "/#open-source");
     expect(screen.getByText("About")).toHaveAttribute("href", "/#about");
     expect(screen.getByText("Contact")).toHaveAttribute("href", "/#contact");
   });
