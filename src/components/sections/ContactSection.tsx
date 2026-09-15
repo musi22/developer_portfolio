@@ -12,6 +12,7 @@ import {
   ShieldCheck,
   AlertCircle,
   PhoneCall,
+  MessageSquare,
 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 
@@ -23,6 +24,13 @@ export default function ContactSection() {
     message: "",
     website_url: "", // Honeypot field
   });
+
+  const [submittedData, setSubmittedData] = useState<{
+    name: string;
+    email: string;
+    company: string;
+    message: string;
+  } | null>(null);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -69,6 +77,12 @@ export default function ContactSection() {
         }
         setSubmitError(data.message || "Failed to dispatch message. Please use direct email.");
       } else {
+        setSubmittedData({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+        });
         setSubmitSuccess(true);
         setFormData({ name: "", email: "", company: "", message: "", website_url: "" });
       }
@@ -182,18 +196,30 @@ export default function ContactSection() {
                 </a>
               </div>
 
-              {/* Direct Phone & Voice Contact */}
-              <div className="mt-3 flex items-center justify-between p-3.5 rounded-xl bg-[#0B0D10] border border-white/10 text-xs font-mono">
+              {/* Direct Phone, Voice & WhatsApp Contact */}
+              <div className="mt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between p-3.5 rounded-xl bg-[#0B0D10] border border-white/10 text-xs font-mono gap-3">
                 <div className="flex items-center gap-2.5">
                   <PhoneCall className="w-4 h-4 text-[#61F4DE]" />
                   <span className="text-white font-semibold">{personal.phone}</span>
                 </div>
-                <a
-                  href={`tel:${personal.phone}`}
-                  className="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/10 text-[#61F4DE] border border-white/10 transition-colors"
-                >
-                  Call Directly
-                </a>
+                <div className="flex items-center gap-2 w-full sm:w-auto">
+                  <a
+                    href={`https://wa.me/919051307659?text=${encodeURIComponent("Hi Rashmi, I reviewed your portfolio and would like to connect.")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#25D366] border border-[#25D366]/30 transition-colors flex items-center justify-center gap-1.5 font-medium"
+                    title="Direct WhatsApp Message"
+                  >
+                    <MessageSquare className="w-3.5 h-3.5" />
+                    <span>WhatsApp</span>
+                  </a>
+                  <a
+                    href={`tel:${personal.phone}`}
+                    className="flex-1 sm:flex-initial px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-[#61F4DE] border border-white/10 transition-colors text-center"
+                  >
+                    Call Directly
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -215,18 +241,43 @@ export default function ContactSection() {
               </div>
 
               {submitSuccess ? (
-                <div className="py-12 text-center font-mono">
+                <div className="py-10 text-center font-mono">
                   <div className="w-12 h-12 rounded-full bg-[#6EE7A8]/10 border border-[#6EE7A8]/30 flex items-center justify-center text-[#6EE7A8] mx-auto mb-4">
                     <Check className="w-6 h-6" />
                   </div>
                   <h4 className="text-lg font-bold text-white mb-2">Message Transmitted</h4>
-                  <p className="text-xs text-[#989CA5] max-w-sm mx-auto leading-relaxed mb-6 font-sans">
-                    Thank you for reaching out. Your message has been logged in the command queue. Rashmi will respond promptly.
+                  <p className="text-xs text-[#989CA5] max-w-sm mx-auto leading-relaxed mb-4 font-sans">
+                    Thank you for reaching out. Your message has been dispatched to Rashmi Shaw ({personal.email}).
                   </p>
+
+                  {submittedData && (
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 mb-6">
+                      <a
+                        href={`mailto:${personal.email}?subject=${encodeURIComponent(`Portfolio Inquiry from ${submittedData.name}`)}&body=${encodeURIComponent(`Name: ${submittedData.name}\nEmail: ${submittedData.email}\nCompany: ${submittedData.company || "N/A"}\n\nMessage:\n${submittedData.message}`)}`}
+                        className="w-full sm:w-auto px-3.5 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-[#61F4DE] border border-white/10 text-xs flex items-center justify-center gap-1.5 transition-colors"
+                      >
+                        <Mail className="w-3.5 h-3.5" />
+                        <span>Open in Mail App</span>
+                      </a>
+                      <a
+                        href={`https://wa.me/919051307659?text=${encodeURIComponent(`Hi Rashmi, this is ${submittedData.name}.\n\n${submittedData.message}`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto px-3.5 py-2 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#25D366] border border-[#25D366]/30 text-xs flex items-center justify-center gap-1.5 transition-colors font-medium"
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" />
+                        <span>Send via WhatsApp</span>
+                      </a>
+                    </div>
+                  )}
+
                   <button
                     type="button"
-                    onClick={() => setSubmitSuccess(false)}
-                    className="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-white text-xs border border-white/10 transition-colors"
+                    onClick={() => {
+                      setSubmitSuccess(false);
+                      setSubmittedData(null);
+                    }}
+                    className="px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-[#989CA5] hover:text-white text-xs border border-white/10 transition-colors"
                   >
                     Send Another Message
                   </button>
