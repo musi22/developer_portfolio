@@ -75,8 +75,8 @@ export async function POST(request: Request) {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
-            Origin: "https://developerportfolio-one-beta.vercel.app",
-            Referer: "https://developerportfolio-one-beta.vercel.app/",
+            Origin: "https://rashmishaw.vercel.app",
+            Referer: "https://rashmishaw.vercel.app/",
           },
           body: JSON.stringify({
             name,

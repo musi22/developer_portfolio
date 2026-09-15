@@ -36,7 +36,7 @@ export const personal = {
   githubUsername: "musi22",
   linkedin: "https://www.linkedin.com/in/rashmi-shaw-92b444230",
   leetcode: "https://leetcode.com/u/rinki_2005/",
-  website: "https://rashmishaw.dev",
+  website: "https://rashmishaw.vercel.app",
   resumeUrl: "/resume.pdf",
 
   // Education
