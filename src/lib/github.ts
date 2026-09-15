@@ -152,7 +152,7 @@ export const GITHUB_REPOS_FALLBACK: GitHubRepo[] = [
     forksCount: 0,
     updatedAt: "2026-09-07T18:25:52Z",
     topics: ["nextjs", "react-three-fiber", "threejs", "tailwind-css"],
-    homepage: "https://rashmishaw.dev",
+    homepage: "https://rashmishaw.vercel.app",
     isPrimary: false,
   },
 ];

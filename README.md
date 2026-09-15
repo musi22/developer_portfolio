@@ -1,7 +1,7 @@
-# rashmishaw.dev ⚡
+# rashmishaw.vercel.app ⚡
 ### Personal Portfolio & Interactive Systems Playground
 
-> **Live Website:** [rashmishaw.dev](https://rashmishaw.dev) · **Resume:** [`public/resume.pdf`](./public/resume.pdf)
+> **Live Website:** [rashmishaw.vercel.app](https://rashmishaw.vercel.app) · **Resume:** [`public/resume.pdf`](./public/resume.pdf)
 
 Hey! I'm **Rashmi Shaw**, a backend and AI systems engineer from Kolkata, India, graduating from the **National Institute of Technology, Kurukshetra** (Class of 2026).
 
